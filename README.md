@@ -1,31 +1,31 @@
 IP storage
 ===
 
-###Description
+### Description
 
 Project contains two parts:
 
-#####Composer package 
+##### Composer package
 Storage implementation. Located in a `package`directory. Contains model classes for IPV4/6 addresses, storage interface, B-Tree driver interface.
 B-Tree is implemented in a `IpAddressBtree\Tree\FileSystemBtreeDriver` class (file system storage). Linked to application as *path* repository.
 
-#####Symfony application 
+##### Symfony application
 `app` directory contains Symfony application which integrates `package` and provides CLI and RestAPI interfaces to storage.  
- 
-###Installation/configuration
+
+### Installation/configuration
 1. `git clone git@bitbucket.org:stas81/ip-store.git ./ip-store` - clone project
 2. `cd ./ip-store/app`
 3. `composer install` - install dependencies with Composer
-4. check path to storage file in `app/config/papameters.yml` under `storage_file` parameter 
+4. check path to storage file in `app/config/papameters.yml` under `storage_file` parameter
 
-####Usage
+#### Usage
 System supports both IPv4 and IPv6 addresses.
-#####CLI interface
+##### CLI interface
 Implemented with two Symfony console commands, both takes one IP address as an argument:    
 1. `bin/console app:address:query 195.154.2.10` - display a number of times which IP address was added to the storage
 2. `bin/console app:address:store 195.154.2.10` - add IP address to the storage and display a number of times which IP address was added
 
-#####Rest interface (JSON-API)
+##### Rest interface (JSON-API)
 1. Query counter
     * Request`GET /api/address?ip=195.154.2.10`
     * Response
@@ -40,7 +40,7 @@ Implemented with two Symfony console commands, both takes one IP address as an a
     }
     ```
 2. Store IP address
-    * Request 
+    * Request
     `POST /api/address`
     ```json
     {
@@ -58,8 +58,8 @@ Implemented with two Symfony console commands, both takes one IP address as an a
         }
     }
     ```
-    
-####Running tests
+
+#### Running tests
 Tests was made separately for `package` and `app`
 
 1. inside a `package` directory:
