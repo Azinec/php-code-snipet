@@ -1,0 +1,15 @@
+{
+    "name": "stas/ip-storage",
+    "description": "IP address storage. Test task.",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": { "": "./src" }
+    },
+    "require": {
+        "ext-bcmath": "*",
+        "ext-gmp": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4"
+    }
+}

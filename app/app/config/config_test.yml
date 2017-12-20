@@ -1,0 +1,15 @@
+imports:
+    - { resource: config_dev.yml }
+
+parameters:
+    storage_file: /tmp/ip_storage.data.test
+
+framework:
+    test: ~
+    session: ~
+    profiler:
+        collect: false
+
+web_profiler:
+    toolbar: false
+    intercept_redirects: false

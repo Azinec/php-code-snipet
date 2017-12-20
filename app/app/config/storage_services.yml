@@ -1,0 +1,21 @@
+parameters:
+    storage_configuration:
+        file_name: "%storage_file%"
+
+services:
+    ip_address.tree.filesystem_driver:
+        class: IpAddressBtree\Tree\FileSystemBtreeDriver
+        lazy: true
+        public: false
+        factory: ["IpAddressBtree\\Tree\\FileSystemBtreeDriver", load]
+        arguments: ["%storage_configuration%"]
+
+    ip_address.factory:
+        class: IpAddressBtree\Model\IpAddressFactory
+        public: false
+
+    ip_address.storage:
+        class: IpAddressBtree\Storage\Storage
+        lazy: true
+        public: true
+        arguments: ["@ip_address.tree.filesystem_driver"]

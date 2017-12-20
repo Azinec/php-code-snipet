@@ -1,0 +1,17 @@
+jms_serializer:
+    handlers:
+        datetime:
+            default_format: 'Y-m-d\TH:i:sO'
+            default_timezone: 'UTC'
+    property_naming:
+        separator: _
+        lower_case: true
+    metadata:
+        cache: file
+        debug: "%kernel.debug%"
+        file_cache:
+            dir: "%kernel.cache_dir%/serializer"
+        auto_detection: true
+    visitors:
+        json:
+            options: 0
